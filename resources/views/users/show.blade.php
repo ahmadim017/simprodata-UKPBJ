@@ -1,6 +1,11 @@
 @extends('layouts.sbadmin') 
 
 @section('content')
+@if(session('status'))
+<div class="alert alert-success">
+  {{session('status')}}
+</div>
+@endif
 <div class="card border-left-primary shadow h-100 py-2">
     <div class="card-body box-profile">
       <div class="text-center">
@@ -30,8 +35,9 @@
               <b>Status</b> <a class="float-right">{{$user->status}}</a>
             </li>
       </ul>
-
+    <a href="{{route('users.index')}}" class="btn btn-primary btn-sm">Kembali</a> 
+     
     </div>
     <!-- /.card-body -->
-  </div>
+  </div><br>
 @endsection

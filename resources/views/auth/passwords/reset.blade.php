@@ -1,12 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.forgetpw')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
 
+    <div class="row justify-content-center">
+        <div class="col-md-12">
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
@@ -57,9 +54,8 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                
             </div>
         </div>
     </div>
-</div>
 @endsection

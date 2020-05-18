@@ -107,7 +107,8 @@ class pokjaController extends Controller
         $validation = Validator::make($request->all(),[
             "namapokja" => "required|min:5|max:15",
             "status" => "required",
-            "tglpembuatan" => "required"
+            "tglpembuatan" => "required",
+            "id_user" => "required"
         ])->validate();
         $data = json_encode($request->get('id_user'));
         $pokja = pokja::findOrfail($id);

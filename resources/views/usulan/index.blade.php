@@ -47,7 +47,9 @@
         <th scope="col">SKPD</th>
         <th scope="col">Nama Pekerjaan</th>
         <th scope="col">Tahun Anggaran</th>
+        @if (Auth::user()->roles == "ADMIN")
         <th scope="col">Aksi</th>
+        @endif
       </tr>
     </thead>
     <tbody>
@@ -61,14 +63,17 @@
             </td>
             <td><a href="{{route('usulan.show',[$u->id])}}">{{$u->namapaket}}</a></td>
             <td>{{$u->ta}}</td>
+
+            @if (Auth::user()->roles == "ADMIN")
             <td><a href="{{route('usulan.edit',[$u->id])}}" class="btn btn-primary btn-sm">Edit</a> 
-            <form onsubmit="return confirm('Apakah Anda Yakin Ingin Menghapus?')" action="{{route('usulan.destroy',[$u->id])}}" class="d-inline" method="POST">
-            @csrf
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Delete" class="btn btn-danger btn-sm">
-            </form>
-            </form>
-            </td>
+              <form onsubmit="return confirm('Apakah Anda Yakin Ingin Menghapus?')" action="{{route('usulan.destroy',[$u->id])}}" class="d-inline" method="POST">
+              @csrf
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+              </form>
+              </td>   
+            @endif
+            
       </tr>
       @endforeach
     </tbody>

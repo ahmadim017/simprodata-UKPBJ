@@ -58,7 +58,10 @@
   
 <div class="row">
     <div class="col-xl-7 col-lg-7">
-        <div class="card shadow h-100 py-2">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Jumlah Pagu Berdasarkan Kategori Pengadaan</h6>
+        </div>
           <div class="card-body">
           <div id="container3"></div>
           </div>
@@ -66,27 +69,36 @@
     </div>
   
   <div class="col-xl-5 col-lg-7">
-    <div class="card shadow h-100 py-2">
-      <div class="card-body">
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Data Berdasarkan Sumber Dana</h6>
+      </div>
+      <div class="card-body ">
       <div id="container"></div>
       </div>
     </div>
   </div>
-</div><br>
+</div>
 
 <div class="row">
   <div class="col-12">
-    <div class="card shadow h-100 py-2">
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Jumlah Paket Berdasarkan Kategori Pengadaan</h6>
+      </div>
       <div class="card-body">
       <div id="container1"></div>
       </div>
     </div>
   </div>
-</div><br>
+</div>
 
 <div class="row">
   <div class="col-12">
-    <div class="card shadow h-100 py-2">
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Data Berdasarkan SKPD</h6>
+      </div>
       <div class="card-body">
       <div id="container2"></div>
       </div>
@@ -107,7 +119,7 @@ Highcharts.chart('container3', {
         //height: 200+50
     },
     title: {
-        text: 'Jumlah Nilai Pagu Per Jenis Pengadaan'
+        text: ''
     },
     subtitle: {
         text: ''
@@ -145,8 +157,8 @@ Highcharts.chart('container3', {
     },
     series: [{
         name: 'Jumlah Nilai Pagu',
-        data: {!!json_encode($pagu)!!}
-        //color: '#f7a35c'
+        data: {!!json_encode($pagu)!!},
+        color: '#8085e9'
     }]   
 });
         
@@ -158,7 +170,7 @@ Highcharts.chart('container1', {
         type: 'pie'
     },
     title: {
-        text: 'Berdasarkan Kategori Pengadaan'
+        text: ''
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.y} Paket</b>'
@@ -190,7 +202,7 @@ Highcharts.chart('container2', {
         
     },
     title: {
-        text: 'Pengadaan Berdasarkan SKPD'
+        text: ''
     },
     subtitle: {
         text: ''

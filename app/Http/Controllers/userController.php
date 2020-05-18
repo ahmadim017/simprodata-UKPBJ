@@ -139,6 +139,8 @@ class userController extends Controller
         $user->delete();
         return redirect()->route('users.index',[$id])->with('Status','Data Berhasil dihapus');
     }
+
+
     public function __construct()
     {
         $this->middleware('auth');

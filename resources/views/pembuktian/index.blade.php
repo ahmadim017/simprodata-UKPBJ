@@ -47,7 +47,9 @@
         <th scope="col">Nama Pekerjaan</th>
         <th scope="col">Pokja</th>
         <th scope="col">Tahun Anggaran</th>
+        @if (Auth::user()->roles == "ADMIN")
         <th scope="col">Aksi</th>
+        @endif
       </tr>
     </thead>
     <tbody>
@@ -65,6 +67,7 @@
           <td>
             {{$pb->tugas->usulan->ta}}
           </td>
+          @if (Auth::user()->roles == "ADMIN")
           <td><a href="{{route('pembuktian.edit',[$pb->id])}}" class="btn btn-primary btn-sm">Edit</a> 
           <form onsubmit="return confirm('Apakah Anda Yakin Ingin Menghapus?')" action="{{route('pembuktian.destroy',[$pb->id])}}" class="d-inline" method="POST">
           @csrf
@@ -73,6 +76,7 @@
           </form>
           </form>
           </td>
+          @endif
           @endforeach
     </tr> 
        

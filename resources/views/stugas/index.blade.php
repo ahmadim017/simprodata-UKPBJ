@@ -60,7 +60,9 @@
         <th scope="col">Nama Pekerjaan</th>
         <th scope="col">Pokja</th>
         <th scope="col">Tahun Anggaran</th>
+        @if (Auth::user()->roles == "ADMIN")
         <th scope="col">Aksi</th>
+        @endif
       </tr>
     </thead>
     <tbody>
@@ -81,14 +83,16 @@
           <td>
             {{$t->usulan->ta}}
           </td>
+          @if (Auth::user()->roles == "ADMIN")
           <td><a href="{{route('stugas.edit',[$t->id])}}" class="btn btn-primary btn-sm">Edit</a> 
           <form onsubmit="return confirm('Apakah Anda Yakin Ingin Menghapus?')" action="{{route('stugas.destroy',[$t->id])}}" class="d-inline" method="POST">
           @csrf
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" value="Delete" class="btn btn-danger btn-sm">
-          </form>
+
           </form>
           </td>
+          @endif
     </tr> 
         @endforeach
       

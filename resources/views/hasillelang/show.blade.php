@@ -53,6 +53,14 @@
     <td><strong>Rp.{{number_format($hasillelang->tugas->usulan->hps)}}</strong></td>
     </tr>
     <tr>
+        <th class="bg-light">Nama Pemenang</th>
+    <td><strong>{{$hasillelang->namapemenang}}</strong></td>
+    </tr>
+    <tr>
+        <th class="bg-light">NPWP</th>
+    <td><strong>{{$hasillelang->npwp}}</strong></td>
+    </tr>
+    <tr>
         <th class="bg-light">Harga Penawaran</th>
     <td><strong>Rp.{{number_format($hasillelang->hargapenawaran)}}</strong></td>
     </tr>

@@ -15,7 +15,7 @@
           </div>
         @endif 
         
-        <form enctype="multipart/form-data" action="{{route('pokja.update',[$pokja->id])}}" method="POST">
+        <form enctype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{route('pokja.update',[$pokja->id])}}" method="POST">
         @csrf
         <input type="hidden" value="PUT" name="_method">
         <label for="name">Nama Pokja</label>
@@ -38,30 +38,44 @@
             </div> 
         </div>
           <br>
-          <div class="breadcrumb col-8">
-            Daftar Pegawai UKPBJ
-        </div>
+          <button class="btn btn-primary btn-sm" value="submit" type="submit"><i class="fa fa-save fa-sm"></i> Simpan</button>
+          <a href="#collapseCardExample" data-toggle="collapse" class="btn btn-info btn-sm"><i class="fa fa-plus-circle fa-fw fa-sm"></i>Ubah Data Pokja</a>
+          <a href="{{route('pokja.index')}}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-circle-left fa-fw fa-sm"></i>Kembali</a><br>
+          <br>
+          <div class="collapse" id="collapseCardExample">
           <div class="row">
-            <div class="col-8">
-              @foreach ($datapokja as $dt)
-              <select name="id_user[]" class="form-control">
-                <option value=""></option>
-                @foreach ($user as $u)
-               
-                <option @if ($dt == $u->id )  selected @endif value="{{$u->id}}">{{$u->name}}</option>
-                
-                @endforeach
-              </select><br>
-              @endforeach
+            <div class="col-12">
+              <div class="breadcrumb">
+                Daftar Pegawai UKPBJ
+            </div>
+            <table  class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nama</th>
+                        <th>User ID</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($user as $d)
+                    
+                        <tr>
+                        <td>
+                        <input type="checkbox"  @foreach ($datapokja as $da) @if ($d->id == $da) checked @endif @endforeach class="checkbox" name="id_user[]" value="{{$d->id}}"/>
+                        </td>
+                                <td>{{$d->name}}</td>
+                                <td>{{$d->username}}</td>
+                                <td>{{$d->email}}</td> 
+                        </tr>
+                        
+                    @endforeach
+                </tbody>
+            </table>
             </div>
           </div>
-          <br>
-        <button class="btn btn-primary btn-sm" value="submit" type="submit"><i class="fa fa-save fa-sm"></i> Simpan</button>
-        <a href="#" class="btn btn-info btn-sm"><i class="fa fa-plus-circle fa-fw fa-sm"></i>Tambah Pokja</a>
-        <a href="{{route('pokja.index')}}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-circle-left fa-fw fa-sm"></i>Kembali</a>
+          </div><br>
       </form>
-<br> 
-     
       </div>
     </div>
 </div>

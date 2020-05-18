@@ -9,18 +9,6 @@
 <script src="{{asset('public/sbadmin/js/demo/datatables-demo.js')}}"></script>
 @endsection
 @section('content')
-<div class="row">
-    <div class="col-md-6">
-    <form action="{{route('stugas.index')}}">
-    <div class="input-group mb-3">
-    <input value="{{Request::get('keyword')}}" type="text" class="form-control col-md-10" name="keyword" placeholder="Cari Nama Pekerjaan">
-      <div class="input-group-append">
-        <button type="submit"  class="btn btn-primary"><i class="fas fa-search fa-sm"></i></button>
-      </div>
-    </div>
-    </form>
-    </div>
-  </div>
 
   <div class="card shadow mb-4">
     <!-- Card Header - Accordion -->
