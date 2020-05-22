@@ -77,7 +77,7 @@
     <td><strong>{{Date::createFromDate($hasillelang->tglsppbj)->format('j F Y')}}</strong></td>
     </tr>
 </table>
-<a href="#" class="btn btn-info btn-sm" target="_blank"><i class="far fa-file-alt fa-fw fa-sm"></i>Cetak</a>
+<a href="{{route('hasillelang.cetak_pdf',[$hasillelang->id])}}" class="btn btn-info btn-sm" target="_blank"><i class="far fa-file-alt fa-fw fa-sm"></i>Cetak</a>
 <a href="{{route('hasillelang.index')}}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-circle-left fa-fw fa-sm"></i>Kembali</a>
           </div>
         </div>

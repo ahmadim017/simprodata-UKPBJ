@@ -59,6 +59,8 @@ Route::get('/stugas/{id}/cetak_pdf','tugasController@cetak_pdf')->name('stugas.c
 
 Route::get('/hasillelang/json', 'hasillelangController@json')->name('hasillelang.json');
 
+Route::get('/hasillelang/{id}/cetak_pdf','hasillelangController@cetak_pdf')->name('hasillelang.cetak_pdf');
+
 Route::get('/laporanulp/usulan','laporanulpController@lapusulan')->name('laporanulp.usulanlelang');
 
 Route::get('/laporanulp/proses','laporanulpController@lapproses')->name('laporanulp.proseslelang');

@@ -37,7 +37,7 @@ $('#tugas').select2({
                     {{session('status')}}
                 </div>
                 @endif
-                <form action="" method="POST" enctype="multipart/form-data" class="bg-white shadow-sm p-3">
+            <form action="{{route('hasillelang.update',[$hasillelang->id])}}" method="POST" enctype="multipart/form-data" class="bg-white shadow-sm p-3">
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
                 <div class="row">
@@ -45,13 +45,13 @@ $('#tugas').select2({
                         <label for="">No Hasil Lelang</label>
                         <input type="text" name="nohasil" value="{{$hasillelang->nohasil}}" placeholder="No Surat Hasil Lelang" class="form-control">
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <label for="">Tanggal Hasil Lelang</label>
-                    <input type="date" name="nohasik" class="form-control" value="{{$hasillelang->tglhasil}}">
+                    <input type="date" name="tglhasil" class="form-control" value="{{$hasillelang->tglhasil}}">
                     </div>
                 </div><br>
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-12">
                         <label for="">Nama Paket</label>
                         <select name="id_tugas" id="tugas" class="form-control">
                             @foreach ($tugas as $t)
@@ -61,10 +61,36 @@ $('#tugas').select2({
                             @endforeach
                         </select>
                     </div>
-                </div>
-
-
-                </form>
+                </div><br>
+                <div class="row">
+                    <div class="col-6">
+                    <label for="">Nama Pemenang</label>
+                    <input type="text" name="namapemenang" value="{{$hasillelang->namapemenang}}" class="form-control" placeholder="Nama Pemenang">
+                    </div>
+                    <div class="col-6">
+                        <label for="">NPWP</label>
+                        <input type="text" name="npwp" value="{{$hasillelang->npwp}}" class="form-control" placeholder="NPWP">
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Harga Penawaran</label>
+                    <input type="text" class="form-control" name="hargapenawaran" id="hargap" value="{{$hasillelang->hargapenawaran}}" placeholder="Harga Penawaran">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Harga Terkoreksi</label>
+                        <input type="text" class="form-control" id="hargat" value="{{$hasillelang->hargaterkoreksi}}" name="hargaterkoreksi" placeholder="Harga Terkoreksi">
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Tanggal SPPBJ</label>
+                    <input type="date" value="{{$hasillelang->tglsppbj}}" class="form-control" name="tglsppbj">
+                    </div>
+                </div><br>
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save fa-fw fa-sm"></i>Simpan</button>
+                <a href="{{route('hasillelang.index')}}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-circle-left fa-fw fa-sm"></i>Kembali</a>
+            </form>
             </div>
         </div>
     </div>

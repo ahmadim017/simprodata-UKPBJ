@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\hasillelang;
 use Illuminate\Http\Request;
 use Jenssegers\Date\Date;
-use Barryvdh\DomPDF\PDF;
+use PDF;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -119,7 +119,38 @@ class hasillelangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validation = Validator::make($request->All(),[
+            "nohasil" => "required",
+            "tglhasil" => "required",
+            "id_tugas" => "required",
+            "namapemenang" => "required",
+            "npwp" => "required|min:7|max:20",
+            "hargapenawaran" => "required",
+            "hargaterkoreksi" => "required",
+            "tglsppbj" => "required"
+        ])->validated();
+        
+        $rupiah = $request->get('hargapenawaran');
+        $pagu = preg_replace("/[^0-9]/","", $rupiah);
+        $hargap = (int) $pagu;
+
+        $rupiah1 = $request->get('hargaterkoreksi');
+        $hps = preg_replace("/[^0-9]/","", $rupiah1);
+        $hargat = (int) $hps;
+
+        $hasillelang = \App\hasillelang::findOrfail($id);
+        $hasillelang->nohasil = $request->get('nohasil');
+        $hasillelang->tglhasil = $request->get('tglhasil');
+        $hasillelang->id_tugas = $request->get('id_tugas');
+        $hasillelang->namapemenang = $request->get('namapemenang');
+        $hasillelang->npwp = $request->get('npwp');
+        $hasillelang->hargapenawaran = $hargap;
+        $hasillelang->hargaterkoreksi = $hargat;
+        $hasillelang->tglsppbj = $request->get('tglsppbj');
+        $hasillelang->updated_by = auth::user()->id;
+        $hasillelang->save();
+        return redirect()->route('hasillelang.edit',[$id])->with('status','Data berhasil disimpan');
+
     }
 
     /**
@@ -148,6 +179,16 @@ class hasillelangController extends Controller
             }else{
                 return redirect()->guest('/');
             }
-        });
+        }); 
     }
+
+    public function cetak_pdf($id)
+    {
+        Date::setlocale('id');
+        
+        $hasillelang = \App\hasillelang::findOrfail($id);
+        $pdf = PDF::loadview('hasillelang.hasilcetak',['hasillelang' => $hasillelang]);
+        return $pdf->stream();
+    }
+
 }

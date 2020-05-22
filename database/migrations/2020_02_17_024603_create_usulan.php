@@ -17,7 +17,7 @@ class CreateUsulan extends Migration
             $table->bigIncrements('id');
             $table->string('nousul');
             $table->string('namapaket');
-            $table->timestamp('tglterima');
+            $table->date('tglterima');
             $table->integer('pagu');
             $table->integer('hps');
             $table->string('ta');
