@@ -11,6 +11,7 @@
         <!-- Card Content - Collapse -->
         <div class="collapse show" id="collapseCardExample">
           <div class="card-body">
+            <div class="table-responsive">
 <table class="table">
     <tr>
         <th class="bg-light" width="200">No Surat Tugas</th>
@@ -61,6 +62,7 @@
     <td><strong>{{$tugas->pokja->namapokja}}</strong></td>
     </tr>
 </table>
+            </div>
 <a href="{{route('stugas.cetak_pdf',[$tugas->id])}}" class="btn btn-info btn-sm" target="_blank"><i class="far fa-file-alt fa-fw fa-sm"></i>Cetak</a>
 <a href="{{route('stugas.index')}}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-circle-left fa-fw fa-sm"></i>Kembali</a>
           </div>

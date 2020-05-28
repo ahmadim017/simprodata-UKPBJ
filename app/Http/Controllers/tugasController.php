@@ -175,7 +175,7 @@ class tugasController extends Controller
             }elseif(Auth::user()->roles == "USER"){
                 return $next($request);
             }else{
-                return redirect()->guest('/');
+                return redirect()->guest('/404');
             }
         });
     }

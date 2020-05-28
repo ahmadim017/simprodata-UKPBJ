@@ -11,6 +11,7 @@
         <!-- Card Content - Collapse -->
         <div class="collapse show" id="collapseCardExample">
           <div class="card-body">
+            <div class="table-responsive">
 <table class="table">
     <tr>
         <th class="bg-light" width="200">No Surat Tugas</th>
@@ -81,7 +82,7 @@
 <a href="{{route('hasillelang.index')}}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-circle-left fa-fw fa-sm"></i>Kembali</a>
           </div>
         </div>
-    
+    </div>
 
     </div>
 </div>

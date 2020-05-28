@@ -11,6 +11,7 @@
       <!-- Card Content - Collapse -->
       <div class="collapse show" id="collapseCardExample">
         <div class="card-body">
+          <div class="table-responsive">
 <table class="table">
   <tr>
       <th class="bg-light" width="200">No surat Usulan</th>
@@ -65,6 +66,7 @@
   <td><strong><a href="{{route('usulan.download',[$usulan->id])}}"><i class="fas fa-download fa-fw fa-sm"></i>{{$usulan->tittle}}</a></strong></td>
   </tr>
 </table>
+</div>
 <a href="{{route('usulan.index')}}" class="btn btn-primary btn-sm"><i class="fa fa-arrow-circle-left fa-fw fa-sm"></i>Kembali</a>
         </div>
       </div>
